@@ -1,0 +1,2 @@
+# tx-fire-feed
+This bot's mission is to flag new and updated Texas fires from [InciWeb](https://inciweb.nwcg.gov/) and the [Texas A&M Fire Service](https://tfsweb.tamu.edu/) to the [San Antonio Express-News](https://www.expressnews.com/) and [Houston Chronicle](https://www.houstonchronicle.com/).
