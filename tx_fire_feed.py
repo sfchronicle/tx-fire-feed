@@ -10,7 +10,7 @@ import requests
 from bs4 import BeautifulSoup
 from slack_sdk import WebClient
 
-# For testing on json_feeds
+webhook = os.environ['WEBHOOK']
 
 try:
     # Set up whether we are on dev
