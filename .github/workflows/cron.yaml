@@ -21,11 +21,10 @@ jobs:
           python-version: "3.8"
       - name: 💿 Install Requirements
         run: pip install -r requirements.txt
-      - name: 🏔️ Get environment variables
-        env:
-          WEBHOOK: ${{ secrets.WEBHOOK }}
       - name: 🍳 Run script
         run: python3 tx_fire_feed.py
+        env:
+          WEBHOOK: ${{ secrets.WEBHOOK }}
       - name: 🚀 Commit and push if it changed
         run: |
           git config user.name "${GITHUB_ACTOR}"
