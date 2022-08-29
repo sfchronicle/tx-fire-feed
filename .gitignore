@@ -4,3 +4,4 @@ venv/
 # Files
 .env
 .DS_Store
+playground.py

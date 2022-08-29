@@ -12,6 +12,15 @@ from slack_sdk import WebClient
 
 webhook = os.environ['WEBHOOK']
 
+def convert_to_readable_date(date):
+    """
+    Convert a date like '2022-08-29T18:03:38.483Z' to the format YYYY-MM-DD %I:%M %p in central time
+    """
+    date = datetime.datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%fZ')
+    date = date.replace(tzinfo=pytz.utc)
+    date = date.astimezone(pytz.timezone('US/Central'))
+    return date.strftime('%Y-%m-%d %I:%M %p')
+
 try:
     # Set up whether we are on dev
     is_dev = False
@@ -94,7 +103,7 @@ try:
         fire['properties']['Agency'] = "TEXAS A&M FOREST SERVICE"
         fire['properties']['Url'] = "https://public.tfswildfires.com/"
         fire['properties']['Name'] = fire['properties']['name']
-        fire['properties']['Updated'] = fire['properties']['lastupdated']
+        fire['properties']['Updated'] = convert_to_readable_date(fire['properties']['lastupdated'])
         fire['properties']['County'] = fire['properties']['admindivision']
         fire['properties']['AcresBurned'] = fire['properties']['size']
         fire['properties']['PercentContained'] = fire['properties']['containment']
