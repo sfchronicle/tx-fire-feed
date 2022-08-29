@@ -1,5 +1,4 @@
 import configparser
-import datetime
 import json
 import os
 from datetime import datetime, timedelta
@@ -17,7 +16,7 @@ def convert_to_readable_date(date):
     """
     Convert a date like '2022-08-29T18:03:38.483Z' to the format YYYY-MM-DD %I:%M %p in central time
     """
-    date = datetime.datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%fZ')
+    date = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%fZ')
     date = date.replace(tzinfo=pytz.utc)
     date = date.astimezone(pytz.timezone('US/Central'))
     return date.strftime('%Y-%m-%d %I:%M %p')
