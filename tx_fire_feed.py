@@ -24,6 +24,7 @@ def convert_to_readable_date(date):
 try:
     # Set up whether we are on dev
     is_dev = False
+    # Blah
     # Parse the config
     # cp = configparser.ConfigParser(interpolation=None)
     # # read env file based on location
