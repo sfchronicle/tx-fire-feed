@@ -24,17 +24,16 @@ def convert_to_readable_date(date):
 try:
     # Set up whether we are on dev
     is_dev = False
-    # Blah
     # Parse the config
-    # cp = configparser.ConfigParser(interpolation=None)
-    # # read env file based on location
-    # if os.path.exists('../../.env'):
-    #     cp.read('../../.env')
-    # elif os.path.exists('/Users/yzhao/.env'):  # is dev
-    #     cp.read('/Users/yzhao/.env')
-    #     is_dev = False
-    # else:  # production
-    #     cp.read("/home/ec2-user/Projects/deploy-engine/.env")
+    cp = configparser.ConfigParser(interpolation=None)
+    # read env file based on location
+    if os.path.exists('../../.env'):
+        cp.read('../../.env')
+    elif os.path.exists('/Users/yzhao/.env'):  # is dev
+        cp.read('/Users/yzhao/.env')
+        is_dev = False
+    else:  # production
+        cp.read("/home/ec2-user/Projects/deploy-engine/.env")
 
     # Prep slack
     app_slack_token = cp.get('slack', 'slack_bot_token')
