@@ -35,10 +35,10 @@ try:
     # else:  # production
     #     cp.read("/home/ec2-user/Projects/deploy-engine/.env")
 
-    # # Prep slack
-    # app_slack_token = cp.get('slack', 'slack_bot_token')
-    # # The app token grants greater permissions
-    # app_sc = WebClient(app_slack_token)
+    # Prep slack
+    app_slack_token = cp.get('slack', 'slack_bot_token')
+    # The app token grants greater permissions
+    app_sc = WebClient(app_slack_token)
     # Get timezones
     tz = pytz.timezone('US/Central')
     utc_tz = pytz.timezone('UTC')
